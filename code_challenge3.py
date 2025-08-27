@@ -8,7 +8,8 @@ password = getpass ("Enter password --> ")
 uname = "francesjane21"
 p_input = "123456789"
 
-if (name.lower() ==uname) and (password.lower() == "123456789"):
+if (name.lower() ==uname) and (password.lower() == p_input):
 	print("Access granted")
 else:
+
 	print("Access denied")
