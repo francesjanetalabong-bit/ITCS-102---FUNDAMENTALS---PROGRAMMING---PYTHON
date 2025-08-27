@@ -1,10 +1,14 @@
+from getpass import getpass
 name = input ("Enter username --> ")
-password = input ("password --> ")
+password = getpass ("Enter password --> ")
 
 #print(username == 'francesjane21' )
 #print(password == '123456789' )
 
-if (name.lower() == "frances_jane") and (password.lower() == "123456789"):
+uname = "francesjane21"
+p_input = "123456789"
+
+if (name.lower() ==uname) and (password.lower() == "123456789"):
 	print("Access granted")
 else:
 	print("Access denied")
