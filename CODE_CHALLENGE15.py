@@ -21,3 +21,4 @@ while True:
         print("Anime added to the list!")
 
 print(f"\nAll Anime in your list: {anime_list}")
+
