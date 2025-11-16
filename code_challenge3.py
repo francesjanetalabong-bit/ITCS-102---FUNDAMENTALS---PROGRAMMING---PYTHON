@@ -1,15 +1,10 @@
-from getpass import getpass
-name = input ("Enter username --> ")
-password = getpass ("Enter password --> ")
+email = "francesjanetalabong@gmail.com"
+password = "secret"
 
-#print(username == 'francesjane21' )
-#print(password == '123456789' )
-
-uname = "francesjane21"
-p_input = "123456789"
-
-if (name.lower() ==uname) and (password.lower() == p_input):
-	print("Access granted")
+f = input("Email: ")
+t = input("Password: ")
+if f.lower == email and t.lower == password:
+	print("Correct password: Access granted")
 else:
-
-	print("Access denied")
+	print(" Invalid password: Access Denied")
+	
