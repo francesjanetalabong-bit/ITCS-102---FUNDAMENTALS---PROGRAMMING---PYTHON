@@ -46,5 +46,7 @@ while True:
             else: 
                 print("NO RECORD FOUND")
         # os.syste
+        continue
+    elif choice =='c':
         
         
