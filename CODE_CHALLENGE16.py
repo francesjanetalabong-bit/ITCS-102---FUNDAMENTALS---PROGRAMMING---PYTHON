@@ -153,7 +153,6 @@ while True:
         break
 
     else:
-         print("INVALID CHOICE, PLEASE RE-ENTER YOUR CHOICE")
+         print("INVALID CHOICE, PLEASE RE-ENTER YPUR CHOICE")
         
-
         
