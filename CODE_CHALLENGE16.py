@@ -18,19 +18,21 @@ while True:
     print("G-Import Record")
     print("X-Exit")
     choice = input("Your choice   ------>  ").lower()
-
+    os.system('cls')
     if choice == 'a':
+
         print("ADDING STUDENT INFORMATION")
         print("----------------------------")
-        student_id = input("Key search for this student information ID ------>")
+        student_id = input("Key search for this student information ID ------>").lower()
 
-        first_name = input("Enter the student first name ---->")
-        last_name =input("Input student last name ------->")
-        course = input("Input Student Course------>")
+        first_name = input("Enter the student first name ---->").upper()
+        last_name =input("Input student last name ------->").upper()
+        course = input("Input Student Course------>").upper()
         email = input("Student email address -->")
 
-        student_records = {search_code : [first_name, last_name, course, email]}
+        student_records[student_id] = [first_name, last_name, course, email]
         print("DATA SAVED")
+
         os.system('cls')
         continue
     
@@ -39,27 +41,26 @@ while True:
         print("PRINTING STUDENT RECORD")
 
         for id,record in student_records.items():
-                print(f"STUDENT ID {id} in STUDENT RECORD {record}")
-                continue
+            print(f"STUDENT ID {id} in STUDENT RECORD {record}")
+        continue
 
     elif choice =='c':
         os.system('cls')
         print("SEARCH STUDENT RECORD")
         print("=========================")
 
-        search_id = input("Input ID to search ----> ").lower()
+        search_id = input("Input ID to search ----> ")
 
         for id in student_records.keys():
             if search_id in student_records.keys():
                 print("=====================================")
                 print("\n\nRECORD FOUND")
                 print("=====================================")
-
                 for i in student_records[search_id]:
                     print(f"-- {i}")
             else:
                 print("=====================================")
-                print("\n\nRECORD FOUND")
+                print("\n\n NO RECORD FOUND")
                 print("=====================================")
             break
         continue
@@ -69,7 +70,7 @@ while True:
         print("DELETE EXISTING RECORD")
         print("=========================")
 
-        search_id = input("Input ID to search ----> ").lower()
+        search_id = input("Input ID to delete ----> ").lower()
         
         for id in student_records.keys():
             if search_id in student_records.keys():
@@ -79,20 +80,21 @@ while True:
                 for i in student_records[search_id]:
                     print(f"-- {i}")
 
-                    student_records.pop(search_id)
-                    print("RECORD DELETED")
+                student_records.pop(search_id)
+                print("RECORD DELETED")
             else:
                 print("=====================================")
                 print("\n\n NO RECORD FOUND")
                 print("=====================================")
             break
         continue    
+
     elif choice == 'e':
         os.system('cls')
-        print("EDIT/MOPDIFY STUDENT RECORD")
+        print("EDIT/MODIFY STUDENT RECORD")
         print("=========================")
 
-        search_id = input("Input ID to search ----> ").lower()
+        search_id = input("Input ID to edit ----> ").lower()
 
         for id in student_records.keys():
             if search_id in student_records.keys():
@@ -109,10 +111,10 @@ while True:
                 course = input("Input Student Course------>").upper()
                 email = input("Student email address -->").upper()
 
-                first_name[search_id][0] = first_name
-                last_name[search_id][1] = last_name
-                course[search_id][2] = course
-                email[search_id][3] =  email
+                student_records[search_id][0] = first_name
+                student_records[search_id][1] = last_name
+                student_records[search_id][2] = course
+                student_records[search_id][3] =  email
 
                 print("DATA UPDATED")
             
@@ -135,10 +137,10 @@ while True:
         continue 
 
     elif choice =='g':
-        os.sytem('cls')
+        os.system('cls')
         print("Import Student Record")
 
-        with open('student_records.json', 'r') as new_file:
+        with open('student_record.json', 'r') as new_file:
             student_json = json.load(new_file)
 
         student_records = student_json
